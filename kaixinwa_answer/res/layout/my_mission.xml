@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F8F8"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_title" >
+
+        <ImageButton
+            android:contentDescription="@string/app_name"
+            android:id="@+id/mission_return_imgbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/wangjimimaback" />
+
+        <TextView
+            android:id="@+id/my_mission_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:text="@string/my_mission"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/my_mission"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/my_mission_bg" >
+        <ImageView 
+            android:contentDescription="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/everyday_mission"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/daily_attendance"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/xiaozhishi_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:text="@string/daily_attendance"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/daily_attendance_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="49dp"
+            android:layout_centerVertical="true"
+            android:text="@string/kaixindoushuliang"
+            android:textColor="#A4A4A4"
+            android:textSize="16sp" />
+
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/happy_beans"/>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/share_kaixinwa"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/xiaozhishi_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:text="@string/share_kaixinwa"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/share_kaixinwa_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="49dp"
+            android:layout_centerVertical="true"
+            android:text="@string/kaixindoushuliang"
+            android:textColor="#A4A4A4"
+            android:textSize="16sp" />
+          <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/happy_beans"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/invite_friends"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/xiaozhishi_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:text="@string/invite_friends"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/invite_friends_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="49dp"
+            android:layout_centerVertical="true"
+            android:text="@string/kaixindoushuliang"
+            android:textColor="#A4A4A4"
+            android:textSize="16sp" />
+          <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/happy_beans"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/xiaozhitang"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/xiaozhishi_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:text="@string/xiaozhishi"
+            android:textSize="16sp" />
+
+       
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/grow_up"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/my_mission_bg" >
+        <ImageView 
+            android:contentDescription="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/growup_bg"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/registered_information"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       android:background="@drawable/xiaozhishi_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:text="@string/information"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/registered_information_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="49dp"
+            android:layout_centerVertical="true"
+            android:text="@string/kaixindoushuliang"
+            android:textColor="#A4A4A4"
+            android:textSize="16sp" />
+          <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/happy_beans"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/school_information"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/xiaozhishi_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:text="@string/school_information"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/school_information_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="49dp"
+            android:layout_centerVertical="true"
+            android:text="@string/kaixindoushuliang"
+            android:textColor="#A4A4A4"
+            android:textSize="16sp" />
+          <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/happy_beans"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/revise_headpic"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/xiaozhishi_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:text="@string/revise_headpic"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/revise_headpic_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="49dp"
+            android:layout_centerVertical="true"
+            android:text="@string/kaixindoushuliang"
+            android:textColor="#A4A4A4"
+            android:textSize="16sp" />
+          <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/happy_beans"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/bangding_weixin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/xiaozhishi_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:text="@string/bangdingweixin"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/bangding_weixin_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="49dp"
+            android:layout_centerVertical="true"
+            android:text="@string/kaixindoushuliang"
+            android:textColor="#A4A4A4"
+            android:textSize="16sp" />
+          <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/happy_beans"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

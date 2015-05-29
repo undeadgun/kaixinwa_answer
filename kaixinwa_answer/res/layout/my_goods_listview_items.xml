@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/my_goods_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/my_goods_test_img" />
+
+    <TextView
+        android:id="@+id/my_goods_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/my_goods_img"
+        android:layout_toRightOf="@+id/my_goods_img"
+        android:layout_marginLeft="16dp"
+        android:text="橡皮铅笔刀组合" />
+
+    <ImageView
+        android:id="@+id/goods_sending_stats"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/happy_bean_count"
+        android:layout_below="@+id/happy_bean_count"
+        android:src="@drawable/goods_sent" />
+
+    <TextView
+        android:id="@+id/happy_bean_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/my_goods_title"
+        android:layout_below="@+id/my_goods_title"
+        android:text="350开心豆" />
+
+</RelativeLayout>

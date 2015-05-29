@@ -18,8 +18,6 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-    
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -127,6 +125,7 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+        <activity android:name="com.qkhl.activity.system_setupActivity"></activity>
     </application>
 
 </manifest>

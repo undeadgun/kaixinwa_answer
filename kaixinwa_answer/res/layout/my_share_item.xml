@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+     >
+    
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@drawable/tishikuang_bgfw" >
+
+      <TextView
+          android:id="@+id/day_textview"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="15dp"
+          android:text="@string/day"
+          android:textSize="30sp" />
+
+      <TextView
+          android:id="@+id/month_textview"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="60dp"
+          android:text="@string/month"
+          android:textSize="20sp" />
+
+    
+      <ImageView
+          android:id="@+id/share_item_imageview"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_toLeftOf="@+id/share_context_textview"
+          android:background="@drawable/pic_bg"
+          android:src="@drawable/ic_launcher"
+          android:contentDescription="@string/app_name" />
+
+      <RelativeLayout
+          android:id="@+id/share_context_textview"
+          android:layout_width="150dp"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="10dp"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_alignTop="@+id/share_item_imageview"
+          android:background="@drawable/share_context_bg">
+           
+		      <TextView
+		          android:layout_width="wrap_content"
+		          android:layout_height="wrap_content"
+		          android:layout_marginRight="10dp"
+		          android:layout_alignParentRight="true"
+		          android:layout_marginLeft="10dp"
+		          android:layout_centerVertical="true"
+		          android:text="@string/share_neirong"
+		          android:maxLines="2"
+		          android:ellipsize="end"
+		          android:maxHeight="30dp"/>
+          
+      </RelativeLayout>
+
+  </RelativeLayout>
+
+</LinearLayout>

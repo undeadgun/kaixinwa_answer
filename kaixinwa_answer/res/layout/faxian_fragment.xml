@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/imgBtnRadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="47dp"
+        android:layout_marginTop="26dp"
+        android:minHeight="70dp"
+        android:minWidth="120dp"
+        android:textSize="10dp"
+        android:text="开心电台"
+        
+         />
+
+    
+
+    <Button
+        android:id="@+id/imgBtnMicroClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgBtnRadio"
+        android:layout_marginLeft="27dp"
+        android:layout_toRightOf="@+id/imgBtnRadio"
+        android:minHeight="70dp"
+        android:minWidth="120dp"
+        android:textSize="10dp"
+        android:text="开心微课堂"
+        
+        />
+
+    <Button
+        android:id="@+id/imgBtnStore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imgBtnMicroClass"
+        android:layout_alignTop="@+id/imgBtnTravelStudy"
+        android:minHeight="70dp"
+        android:minWidth="120dp"
+        android:textSize="10dp"
+        android:text="开心商城" />
+
+    <Button
+        android:id="@+id/imgBtnTravelStudy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgBtnRadio"
+        android:layout_marginTop="15dp"
+        android:layout_toLeftOf="@+id/imgBtnMicroClass"
+        android:minHeight="70dp"
+        android:minWidth="120dp"
+        android:textSize="10dp" 
+        android:text="开心游学记"
+        />
+
+    <Button
+        android:id="@+id/imgBtnWisdomClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/imgBtnMicroClass"
+        android:minHeight="70dp"
+        android:minWidth="120dp"
+        android:textSize="10dp"
+        android:text="开心智慧课堂"
+         />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imgBtnWisdomClass"
+        android:layout_below="@+id/imgBtnWisdomClass"
+        android:layout_marginTop="14dp"
+        android:text="下载安装" />
+
+    <Button
+        android:id="@+id/imgBtnHomeWork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="16dp"
+        android:minHeight="70dp"
+        android:minWidth="120dp"
+        android:textSize="10dp"
+        android:text="开心蛙作业" />
+
+    <Button
+        android:id="@+id/imgBtnGames"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imgBtnStore"
+        android:layout_alignTop="@+id/imgBtnHomeWork"
+        android:minHeight="70dp"
+        android:minWidth="120dp"
+        android:textSize="10dp"
+        android:text="开心蛙游戏" />
+
+    <ImageView
+        android:id="@+id/imgLine1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgBtnRadio"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/faxian_line"
+        android:minHeight="70dp" />
+
+    <ImageView
+        android:id="@+id/imgLine2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imgLine1"
+        android:layout_alignTop="@+id/imgBtnStore"
+        android:background="@drawable/faxian_line"
+        android:minHeight="70dp" />
+
+    <ImageView
+        android:id="@+id/imgLine3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgBtnGames"
+        android:layout_toRightOf="@+id/imgLine2"
+        android:background="@drawable/faxian_line"
+        android:minHeight="70dp" />
+
+</RelativeLayout>

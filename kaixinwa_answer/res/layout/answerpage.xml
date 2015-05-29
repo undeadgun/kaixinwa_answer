@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:background="@drawable/titbg"
+       >
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <ImageView 
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_launcher"/>
+        <TextView
+             android:id="@+id/xiaoshuname"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textSize="20sp"
+             android:layout_gravity="center_vertical"
+             android:text="@string/xiaoshu"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_alignParentTop="true" 
+          android:layout_marginRight="20dp">
+
+          <TextView
+              android:id="@+id/save"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginRight="10dp"
+             android:textSize="20sp"
+              android:layout_gravity="center_vertical"
+              android:text="@string/baocun" />
+
+          <ImageView
+              android:id="@+id/Share"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              
+              android:layout_gravity="center_vertical"
+              android:background="@drawable/ic_launcher" />
+      </LinearLayout>
+
+    </RelativeLayout>
+    
+     <ExpandableListView
+        android:id="@+id/answerlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ExpandableListView>
+    
+   
+</LinearLayout>

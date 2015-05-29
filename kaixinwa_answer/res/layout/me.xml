@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none"
+        
+        >
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        >
+    <RelativeLayout
+        android:id="@+id/my_setup_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_bg" >
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:id="@+id/head_picture_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/my_touxiang" />
+
+        <TextView
+            android:id="@+id/address_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/mood_textview"
+            android:layout_below="@+id/mood_textview"
+            android:layout_centerHorizontal="true"
+            android:text="@string/address"
+            android:textColor="#A4A4A4"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/head_picture_imageview"
+            android:layout_centerHorizontal="true"
+            android:text="@string/name_name"
+            android:textColor="#20202F"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/mood_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_textview"
+            android:layout_centerHorizontal="true"
+            android:textColor="#20202F"
+            android:text="@string/mood"
+            android:textSize="26sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/kaixindou_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="@string/yongyou"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/kaixindou_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="120dp"
+            android:text="@string/kaixindoushuliang"
+            android:textColor="#FF0000"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="160dp"
+            android:background="@drawable/happy_beans" />
+
+        <ImageButton
+            android:contentDescription="@string/app_name"
+            android:id="@+id/recharge_imgbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageView1"
+            android:layout_toRightOf="@+id/imageView1"
+            android:layout_centerVertical="true"
+            android:background="@drawable/recharge" />
+
+        <ImageButton
+            android:id="@+id/market_imgbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_alignTop="@+id/imageView1"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/market"
+            android:contentDescription="@string/app_name" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/my_mission"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/xiaozhishi_bg"
+         >
+
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/my_mission"
+            />
+	    <TextView
+	        android:id="@+id/mission_textview"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="60dp"
+	        android:text="@string/my_mission"
+	        android:textSize="16sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/my_share"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/xiaozhishi_bg"
+         >
+
+           <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:background="@drawable/my_share"
+            />
+	    <TextView
+	        android:id="@+id/share_textview"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="60dp"
+	        android:text="@string/my_share"
+	        android:textSize="16sp" />
+
+    </RelativeLayout>
+     <RelativeLayout
+        android:id="@+id/my_goods"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/xiaozhishi_bg"
+        >
+
+            <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/my_goods"
+            />
+	    <TextView
+	        android:id="@+id/goods_textview"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="60dp"
+	        android:text="@string/my_goods"
+	        android:textSize="16sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/my_code"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_code_bg"
+        >
+
+          <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="27dp"
+             android:background="@drawable/my_code"
+            />
+	    <TextView
+	        android:id="@+id/code_textview"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="60dp"
+	        android:text="@string/my_code"
+	        android:textSize="16sp" />
+
+    </RelativeLayout>
+    <View 
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"/>
+    <RelativeLayout
+        android:id="@+id/my_friends"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_friends_bg"
+        >
+
+          <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="27dp"
+             android:background="@drawable/my_friends"
+            />
+	    <TextView
+	        android:id="@+id/friends_textview"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="60dp"
+	        android:text="@string/friends"
+	        android:textSize="16sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/my_message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_code_bg"
+         >
+
+          <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:background="@drawable/my_message"
+            />
+	    <TextView
+	        android:id="@+id/message_textview"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="60dp"
+	        android:text="@string/my_message"
+	        android:textSize="16sp" />
+
+    </RelativeLayout>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

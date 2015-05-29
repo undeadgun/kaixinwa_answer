@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F8F8"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_title" >
+
+        <ImageButton
+            android:id="@+id/frineds_return_imgbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/wangjimimaback"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/my_friends_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:text="@string/friends"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:background="@drawable/white_bg"
+        >
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:id="@+id/invite_friends_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/envelope" />
+
+        <TextView
+            android:id="@+id/you_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/invite_friends_imageview"
+            android:layout_below="@+id/invite_friends_imageview"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="26dp"
+            android:text="@string/code"
+            android:textColor="#ff0000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/you_code"
+            android:layout_alignBottom="@+id/you_code"
+            android:layout_alignRight="@+id/invite_friends_imageview"
+            android:layout_marginRight="34dp"
+            android:text="@string/you_code" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/you_code"
+            android:layout_centerHorizontal="true"
+            android:textColor="#A4A4A4"
+            android:text="@string/text1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:textColor="#A4A4A4"
+            android:text="@string/text2" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/weixin_layout"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/qq_layout"
+            android:background="@drawable/tubiao_bg" >
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/weixin_imgview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/weixin_tubiao" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/weixin_imgview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:text="@string/weixin" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/weibo_layout"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/tubiao_bg" >
+
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:id="@+id/weibo_imgview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/weibo_tubiao" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/weibo_imgview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:text="@string/weibo" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/qq_layout"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/tubiao_bg" >
+
+            <ImageView
+                android:id="@+id/qq_imgview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/qq_tubiao" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/qq_imgview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:text="@string/QQ" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F8F8"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_title" >
+
+       
+
+        <ImageButton
+            android:id="@+id/account_security_return_imgbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/wangjimimaback"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/account_security_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:text="@string/account_security"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+    </RelativeLayout>
+    <RelativeLayout
+        
+        android:id="@+id/account_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/xiaozhishi_bg" >
+
+        <TextView
+            android:id="@+id/account_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="@string/account"
+            android:textSize="20sp" />
+
+         <TextView
+             android:id="@+id/account_textview_content"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_marginRight="20dp"
+             android:layout_centerVertical="true"
+             android:textColor="#A4A4A4"
+             android:text="@string/qq" />
+        
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/password_change_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_code_bg" >
+
+        <TextView
+            android:id="@+id/password_change_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="@string/password_change"
+            android:textSize="20sp" />
+    </RelativeLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <RelativeLayout
+        android:id="@+id/weixin_number_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_friends_bg" >
+
+        <TextView
+            android:id="@+id/weixin_number_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="@string/weixin_number"
+            android:textSize="20sp" />
+         <TextView
+             android:id="@+id/weixin_number_textview_content"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignBottom="@+id/weixin_number_textview"
+             android:layout_alignParentRight="true"
+             android:layout_marginRight="20dp"
+             android:layout_centerVertical="true"
+             android:textColor="#A4A4A4"
+             android:text="@string/weibangding" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/account_security_qq_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_code_bg" >
+
+        <TextView
+            android:id="@+id/account_security_qq_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="@string/QQ"
+            android:textSize="20sp" />
+         <TextView
+             android:id="@+id/account_security_qq_content"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignBottom="@+id/account_security_qq_textview"
+             android:layout_alignParentRight="true"
+             android:layout_marginRight="20dp"
+             android:layout_centerVertical="true"
+             android:textColor="#A4A4A4"
+             android:text="@string/weibangding" />
+    </RelativeLayout>
+
+</LinearLayout>
