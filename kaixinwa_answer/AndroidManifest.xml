@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qkhl.kaixinwa_android"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+   
+    <application
+        android:name="com.qkhl.common.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.qkhl.activity.splashguideActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+             >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.MainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.RegisterPageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.ForgetPassword"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.ResetPassword"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.AnswerPage"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.myselfActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name="com.qkhl.activity.setup_meActivity" >
+        </activity>
+        <activity android:name="com.qkhl.activity.my_codeActivity" >
+        </activity>
+        <activity android:name="com.qkhl.activity.my_friendsActivity" >
+        </activity>
+        <activity android:name="com.qkhl.activity.my_goodsActivity" >
+        </activity>
+        <activity android:name="com.qkhl.activity.my_messageActivity" >
+        </activity>
+        <activity android:name="com.qkhl.activity.my_missionActivity" >
+        </activity>
+        <activity android:name="com.qkhl.activity.my_shareActivity" >
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.happywisdomclassActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.happytravelstudyActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.happystoreActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.happyradioActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.happymicroclassActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.happyfroghomeworkActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.qkhl.activity.happyfroggamesActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+         <activity android:name="com.qkhl.activity.update_userinfoActivity"
+            android:theme="@android:style/Theme.Translucent" 
+
+            ></activity>
+             <activity android:name="com.qkhl.activity.LoginPageAcitivity" 
+                  android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+             <activity android:name="com.qkhl.activity.accountSafetyActivity" />
+             <activity android:name="com.qkhl.activity.happyguideActivity" />
+
+        <receiver android:name="com.qkhl.util.ConnectionChangeReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
