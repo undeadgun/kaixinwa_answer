@@ -8,6 +8,7 @@ import com.qkhl.fragment.myFragment;
 import com.qkhl.kaixinwa_android.R;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +18,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,12 +33,20 @@ public class MainActivity extends FragmentActivity {
 	public static myFragment my_Fragment;
 
 	private ImageButton myset;
+	private  ImageView myanswerimager; 
+	private  TextView myanswertext; 
+	private  ImageView myfoundimager; 
+	private  TextView myfoundtext; 
+	private  ImageView myimager; 
+	private  TextView mytext; 
+	private ImageButton saobao;
 	
 	private int w=0;
 	private View AnswerView;
 	private View FoundView;
 	private View MyView;
-	private TextView xiangdao,saobao;
+	private TextView xiangdao;
+	
 	private boolean CamerisClosed=false;
 	
 	private FragmentTransaction transaction;
@@ -61,8 +71,14 @@ public class MainActivity extends FragmentActivity {
 		MyView = findViewById(R.id.mylayout);
 		tv = (TextView) findViewById(R.id.daohang);
 //		xiangdao=(TextView) findViewById(R.id.daohang);
-		saobao=(TextView) findViewById(R.id.maoyisao);
+		saobao=(ImageButton) findViewById(R.id.maoyisao);
 		myset=(ImageButton) findViewById(R.id.set_button);
+		myanswerimager=(ImageView) findViewById(R.id.answerpic);
+		myanswertext=(TextView) findViewById(R.id.found);
+		myfoundimager=(ImageView) findViewById(R.id.foundpic);
+		myfoundtext=(TextView) findViewById(R.id.myfoundte);
+		myimager=(ImageView) findViewById(R.id.mypic);
+		mytext=(TextView) findViewById(R.id.da);
 		
 		myset.setOnClickListener(new OnClickListener() {
 			
@@ -80,7 +96,8 @@ public class MainActivity extends FragmentActivity {
 		AnswerView.setOnClickListener(new ViewClickListener());
 		FoundView.setOnClickListener(new ViewClickListener());
 		MyView.setOnClickListener(new ViewClickListener());
-
+		myanswerimager.setImageResource(R.drawable.dianxiahouanswer);
+		myanswertext.setTextColor(Color.parseColor("#0093FF"));
 		saobao.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -200,6 +217,15 @@ public class MainActivity extends FragmentActivity {
 			switch (v.getId()) {
 			case R.id.answerlayout:
 				setTabSelection(1);
+				//答案点中
+				myanswerimager.setImageResource(R.drawable.dianxiahouanswer);
+				myanswertext.setTextColor(Color.parseColor("#0093FF"));
+				//发现默认
+				myfoundimager.setImageResource(R.drawable.faxiantubiao);
+				myfoundtext.setTextColor(Color.parseColor("#999999"));
+				//我的默认
+				myimager.setImageResource(R.drawable.baisemybg);
+				mytext.setTextColor(Color.parseColor("#999999"));
 				tv.setText("答案");
 				myset.setVisibility(View.GONE);
 				saobao.setVisibility(View.VISIBLE);
@@ -207,6 +233,15 @@ public class MainActivity extends FragmentActivity {
 
 			case R.id.foundlayout:
 				setTabSelection(2);
+				//发现点中
+				myfoundimager.setImageResource(R.drawable.foundxuanzhongbg);
+				myfoundtext.setTextColor(Color.parseColor("#0093FF"));
+				
+				myimager.setImageResource(R.drawable.baisemybg);
+				mytext.setTextColor(Color.parseColor("#999999"));
+				
+				myanswerimager.setImageResource(R.drawable.daantubiao);
+				myanswertext.setTextColor(Color.parseColor("#999999"));
 				tv.setText("发现");
 				saobao.setVisibility(View.GONE);
 				myset.setVisibility(View.GONE);
@@ -214,6 +249,14 @@ public class MainActivity extends FragmentActivity {
 				break;
 			case R.id.mylayout:
 				setTabSelection(3);
+				myimager.setImageResource(R.drawable.mytubiao);
+				mytext.setTextColor(Color.parseColor("#0093FF"));
+				
+				myfoundimager.setImageResource(R.drawable.faxiantubiao);
+				myfoundtext.setTextColor(Color.parseColor("#999999"));
+				
+				myanswerimager.setImageResource(R.drawable.daantubiao);
+				myanswertext.setTextColor(Color.parseColor("#999999"));
 				tv.setText("我的");
 				saobao.setVisibility(View.GONE);
 				myset.setVisibility(View.VISIBLE);

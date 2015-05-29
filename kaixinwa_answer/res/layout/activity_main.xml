@@ -28,7 +28,7 @@
             android:layout_toRightOf="@+id/yincangbaocun"
             android:text="答案"
             android:textColor="#ffffff"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
         
         
         <FrameLayout 
@@ -46,12 +46,12 @@
             android:layout_height="wrap_content"
             android:background="@drawable/my_set" />
 
-        <TextView
+        <ImageButton
             android:id="@+id/maoyisao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:text="扫一扫"
             android:textColor="#ffffff"
+            android:background="@drawable/rightsaoyisao"
             android:textSize="25sp"/>
         </FrameLayout>
     </RelativeLayout>
@@ -66,18 +66,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/dibubg"
         android:orientation="horizontal" >
 
         <RelativeLayout
+            
             android:id="@+id/answerlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_weight="1" >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                
                 android:orientation="vertical" >
 
                 <ImageView
@@ -100,6 +104,7 @@
             android:id="@+id/foundlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_weight="1" >
 
             <LinearLayout
@@ -116,7 +121,7 @@
                     android:src="@drawable/faxiantubiao" />
 
                 <TextView
-                    android:id="@+id/my"
+                    android:id="@+id/myfoundte"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -128,6 +133,7 @@
             android:id="@+id/mylayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_weight="1" >
 
             <LinearLayout
@@ -141,7 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/mytubiao" />
+                    android:src="@drawable/baisemybg" />
 
                 <TextView
                     android:id="@+id/da"
