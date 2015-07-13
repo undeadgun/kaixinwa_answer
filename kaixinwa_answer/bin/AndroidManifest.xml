@@ -70,6 +70,8 @@
         </activity>
         <activity android:name="com.qkhl.activity.setup_meActivity" >
         </activity>
+        <activity android:name="com.qkhl.activity.XiuGaiWebAnswer" >
+        </activity>
         <activity android:name="com.qkhl.activity.my_codeActivity" >
         </activity>
         <activity android:name="com.qkhl.activity.my_friendsActivity" >

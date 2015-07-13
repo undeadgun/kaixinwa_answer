@@ -27,5 +27,6 @@
     <color name="viewfinder_laser">#ffff0000</color>
     <color name="viewfinder_mask">#60000000</color>
     <color name="kaixindaan">#030303</color>
+     <color name="bright_foreground_dark">#ffffffff</color>  
 
 </resources>

@@ -43,6 +43,7 @@ public final class CaptureActivityHandler extends Handler {
 		case R.id.decode_succeeded:
 			state = State.SUCCESS;
 			activity.handleDecode((String) message.obj);// 解析成功，回调
+
 			break;
 
 		case R.id.decode_failed:

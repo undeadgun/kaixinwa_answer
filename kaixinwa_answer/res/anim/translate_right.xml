@@ -6,38 +6,13 @@
         android:duration="1000"
         android:fromXDelta="0.0"
         android:fromYDelta="0.0"
+        android:toXDelta="0.0"
+        android:toYDelta="50%p" />
+    <!--
+android:duration="1000"
+        android:fromXDelta="0.0"
+        android:fromYDelta="0.0"
         android:toXDelta="50.0%p"
-        android:toYDelta="0.0" />
-<!--      android:fromXScale="0.0" 
-android:fromYScale="0.0" 
-android:toXScale="5" 
-android:toYScale="5" 
-android:pivotX="50%" 
-android:pivotY="50%" 
-android:fillAfter="false" 
-android:duration="5000" -->
-
-<!-- 
-android:repeatCount="2"
-android:fromXDelta="0"
-android:fromYDelta="0"
-android:toXDelta="120"
-android:toYDelta="120"
-android:duration="3000" -->
-
-
-
-
-<!-- 
-=================画面旋转动画效果======================
-
-
-android:interpolator="@android:anim/accelerate_interpolator"
-android:repeatCount="2"
-android:fromDegrees="0"
-android:toDegrees="+360"
-android:pivotX="50%"
-android:pivotY="50%"
-android:duration="3000" -->
-
+        android:toYDelta="0.0"
+    -->
 </set>

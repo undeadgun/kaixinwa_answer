@@ -2,11 +2,13 @@ package com.qkhl.util;
 
 import java.util.UUID;
 
+
 public class CreateInfo {
 
-	public String upkey(String password,String phonenum,String createtime){
-		String uk= password+phonenum+createtime;
-		String nkey=MD5Utils.stringToMD5(uk);
+	public String upkey(String phonenum,String password){
+		StringBuilder strb=new StringBuilder();
+		strb.append(phonenum);strb.append(password);
+		String nkey=MD5Utils.stringToMD5(strb.toString());
 		return nkey;
 		
 	}

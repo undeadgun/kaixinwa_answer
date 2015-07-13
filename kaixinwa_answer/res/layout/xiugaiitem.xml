@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+      
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:gravity="center"
+        android:background="@drawable/my_title"
+       >
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp">
+        <ImageView 
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/wangjimimaback"/>
+        <TextView
+             android:id="@+id/xiaoshuname"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textSize="20sp"
+             android:textColor="#ffffff"
+             android:layout_gravity="center_vertical"
+             android:text="@string/xiaoshu"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_alignParentTop="true" 
+          android:layout_marginRight="15dp">
+
+          <ImageView
+              android:id="@+id/save"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginRight="25dp"
+              android:layout_gravity="center_vertical"
+              android:background="@drawable/save_bg" />
+
+          <ImageView
+              android:id="@+id/Share"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              
+              android:layout_gravity="center_vertical"
+              android:background="@drawable/fengxiang_bg" />
+      </LinearLayout>
+
+    </RelativeLayout>
+  
+   <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        
+        > 
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+       
+    <RelativeLayout 
+        android:id="@+id/zhishiyuliangquan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bgbgbgbg_bg"
+        >
+   <ImageView 
+        android:id="@+id/zhishitu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/zsylq_bg"
+        />
+
+    <ImageView
+        android:id="@+id/zhishijiantou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/blue_jiantou_bg" />
+
+    <TextView
+        android:id="@+id/zhishizi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/zhishitu"
+        android:text="知识月亮泉"
+        android:textColor="#0093FF" />
+
+    </RelativeLayout>
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        
+        > 
+   <WebView 
+       android:id="@+id/zsylweb"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:visibility="gone"
+       />
+   </ScrollView> 
+    <RelativeLayout 
+        android:id="@+id/xinlulanghuatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bgbgbgbg_bg">
+   <ImageView 
+        android:id="@+id/xinlutu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+         android:background="@drawable/xllht_bg"
+        />
+
+    <TextView 
+        android:id="@+id/xinluzi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/xinlutu"
+        android:layout_centerVertical="true"
+        android:text="心路浪花摊"
+        android:textColor="#0093FF"
+        />
+
+    <ImageView
+        android:id="@+id/xinlujiantou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/blue_jiantou_bg" />
+    </RelativeLayout>
+     <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        > 
+        
+   <WebView 
+       android:id="@+id/xllhtweb"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:visibility="gone"
+       />
+   </ScrollView> 
+  
+    <RelativeLayout 
+        android:id="@+id/yangguanglvyezhou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bgbgbgbg_bg">
+   <ImageView 
+        android:id="@+id/yangguangtu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+         android:background="@drawable/yglyz_bg"
+        />
+
+    <TextView 
+        android:id="@+id/yangguangzi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/yangguangtu"
+        android:layout_centerVertical="true"
+        android:text="阳光绿野洲"
+        android:textColor="#0093FF"
+        />
+
+    <ImageView
+        android:id="@+id/yangguangjiantou"
+       android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/blue_jiantou_bg" />
+    </RelativeLayout>
+     <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        > 
+   <WebView 
+       android:id="@+id/yglyzweb"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:visibility="gone"
+       />
+
+
+
+   </ScrollView> 
+   </LinearLayout>
+   </ScrollView> 
+</LinearLayout>

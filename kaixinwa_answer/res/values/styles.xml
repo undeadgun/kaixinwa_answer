@@ -17,4 +17,26 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+     <style name="TextAppearance">  
+        <item name="android:textColor">@android:color/primary_text_dark</item>  
+        <item name="android:textColorHighlight">#FFFF9200</item>  
+        <item name="android:textColorHint">#808080</item>  
+        <item name="android:textColorLink">#5C5CFF</item>  
+        <item name="android:textSize">16sp</item>  
+        <item name="android:textStyle">normal</item>  
+    </style>  
+    
+    <style name="TextAppearance.Small">  
+        <item name="android:textSize">20sp</item>  
+        <item name="android:textStyle">normal</item>  
+        <item name="android:textColor">@android:color/secondary_text_light</item>  
+    </style>  
+    
+    
+    <style name="PopupAnimation" parent="android:Animation"  
+        mce_bogus="1">  
+        <item name="android:windowEnterAnimation">@anim/pop_out_enter</item>  
+        <item name="android:windowExitAnimation">@anim/pop_out_exit</item>  
+    </style>  
+    
 </resources>

@@ -7,22 +7,25 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" 
-        android:background="@drawable/titbg"
+        android:gravity="center"
+        android:background="@drawable/my_title"
        >
         <LinearLayout 
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp">
         <ImageView 
             android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/ic_launcher"/>
+            android:background="@drawable/wangjimimaback"/>
         <TextView
              android:id="@+id/xiaoshuname"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:textSize="20sp"
+             android:textColor="#ffffff"
              android:layout_gravity="center_vertical"
              android:text="@string/xiaoshu"/>
       </LinearLayout>
@@ -32,16 +35,9 @@
           android:layout_height="wrap_content"
           android:layout_alignParentRight="true"
           android:layout_alignParentTop="true" 
-          android:layout_marginRight="20dp">
+          android:layout_marginRight="15dp">
 
-          <TextView
-              android:id="@+id/save"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginRight="10dp"
-             android:textSize="20sp"
-              android:layout_gravity="center_vertical"
-              android:text="@string/baocun" />
+
 
           <ImageView
               android:id="@+id/Share"
@@ -49,16 +45,162 @@
               android:layout_height="wrap_content"
               
               android:layout_gravity="center_vertical"
-              android:background="@drawable/ic_launcher" />
+              android:background="@drawable/fengxiang_bg" />
       </LinearLayout>
 
     </RelativeLayout>
+    <RelativeLayout 
+        android:id="@+id/xianshiyingcang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="@drawable/bgbgbgbg_bg"
+        >
+   <ImageView 
+        android:id="@+id/xianshi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        />
+
+    <ImageView
+        android:id="@+id/xianshijiantou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+       />
+
+    <TextView
+        android:id="@+id/xianshiitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/xianshi"
+        android:text="知识月亮泉"
+        android:textColor="#0093FF" />
+
+    </RelativeLayout>
     
-     <ExpandableListView
+     <LinearLayout
+        android:id="@+id/Tab"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:baselineAligned="false"
+         >
+  
+        <RelativeLayout  
+            android:id="@+id/firstpage_layout"  
+            android:layout_width="0dp"  
+            android:layout_height="match_parent"  
+            android:layout_weight="1"
+             >  
+  
+            <LinearLayout  
+                android:layout_width="match_parent"  
+                android:layout_height="wrap_content"  
+                android:layout_centerVertical="true"  
+                android:orientation="vertical" >  
+  
+                <ImageView  
+                    android:id="@+id/firstpage_image"  
+                    android:layout_width="wrap_content"  
+                    android:layout_height="wrap_content"  
+                    android:layout_gravity="center_horizontal"
+                     
+                    />  
+  
+                <TextView  
+                    android:id="@+id/firstpage_text"  
+                    android:layout_width="wrap_content"  
+                    android:layout_height="wrap_content"  
+                    android:layout_gravity="center_horizontal"  
+                    android:text="知识月亮泉"  
+					 />  
+            </LinearLayout>  
+        </RelativeLayout>  
+  
+        <RelativeLayout  
+            android:id="@+id/market_layout"  
+            android:layout_width="0dp"  
+            android:layout_height="match_parent"  
+            android:layout_weight="1"
+             >  
+  
+            <LinearLayout  
+                android:layout_width="match_parent"  
+                android:layout_height="wrap_content"  
+                android:layout_centerVertical="true"  
+                android:orientation="vertical" >  
+  
+                <ImageView  
+                    android:id="@+id/market_image"  
+                    android:layout_width="wrap_content"  
+                    android:layout_height="wrap_content"  
+                    android:layout_gravity="center_horizontal"
+                    
+                    />  
+  
+                <TextView  
+                    android:id="@+id/market_text"  
+                    android:layout_width="wrap_content"  
+                    android:layout_height="wrap_content"  
+                    android:layout_gravity="center_horizontal"  
+                    android:text="心路浪花摊"  
+					 />  
+            </LinearLayout>  
+        </RelativeLayout>  
+  
+        <RelativeLayout  
+            android:id="@+id/shoppingcart_layout"  
+            android:layout_width="0dp"  
+            android:layout_height="match_parent"  
+            android:layout_weight="1" 
+            >  
+  
+            <LinearLayout  
+                android:layout_width="match_parent"  
+                android:layout_height="wrap_content"  
+                android:layout_centerVertical="true"  
+                android:orientation="vertical" >  
+  
+                <ImageView  
+                    android:id="@+id/shoppingcart_image"  
+                    android:layout_width="wrap_content"  
+                    android:layout_height="wrap_content"  
+                    android:layout_gravity="center_horizontal"
+                     />  
+  
+                <TextView  
+                    android:id="@+id/shoppingcart_text"  
+                    android:layout_width="wrap_content"  
+                    android:layout_height="wrap_content"  
+                    android:layout_gravity="center_horizontal"  
+                    android:text="阳光绿野洲"  
+					 />  
+            </LinearLayout>  
+        </RelativeLayout>  
+  
+      
+    </LinearLayout>  
+    
+    
+     <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" 
+        android:background="#F2F2F2"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+    
+     <!-- <ExpandableListView
         android:id="@+id/answerlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-    </ExpandableListView>
+    </ExpandableListView> -->
     
    
 </LinearLayout>

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<set android:fillAfter="false"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <translate android:duration="1000" android:fromXDelta="0.0" android:toXDelta="-50.0%p" android:fromYDelta="0.0" android:toYDelta="0.0" />
-<!--    
-     android:fromXScale="0.0" 
-android:fromYScale="0.0" 
-android:toXScale="5" 
-android:toYScale="5" 
-android:pivotX="50%" 
-android:pivotY="50%" 
-android:fillAfter="false" 
-android:duration="5000" -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="false" >
+
+    <translate
+        android:duration="1000"
+        android:fromXDelta="0.0"
+        android:fromYDelta="0.0"
+        android:toXDelta="0.0"
+        android:toYDelta="-50%p" />
+<!-- android:duration="1000" android:fromXDelta="0.0" android:toXDelta="-50.0%p" android:fromYDelta="0.0" android:toYDelta="0.0" -->
+
 </set>

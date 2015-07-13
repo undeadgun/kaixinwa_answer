@@ -9,29 +9,22 @@
         android:layout_height="wrap_content"
         android:background="@drawable/logintitbg" >
 
-        <ImageButton
-            android:id="@+id/registback"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/wangjimimaback" />
-
         <TextView
             android:id="@+id/resgister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@+id/registback"
             android:text="@string/zhuce"
             android:textColor="#ffffff"
             android:textSize="20sp" />
+
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
         android:gravity="center_horizontal"
         android:orientation="vertical" >
 
@@ -137,9 +130,53 @@
             android:text="完成"
             android:textColor="#ffffff"
             android:textSize="25sp" />
+         <View
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" />
 
+           <TextView
+               android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册即代表你已阅读并同意" />
+           <View
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+            <TextView
+               android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0093FF"
+            android:text="开心蛙答案用户协议和隐私条款" />
 
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/registback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        android:layout_weight="1" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView1"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_toLeftOf="@+id/textView1"
+            android:text="已有账号、" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="108dp"
+            android:text="直接登录"
+            android:textColor="#FF6100" />
+
+    </RelativeLayout>
 
 </LinearLayout>

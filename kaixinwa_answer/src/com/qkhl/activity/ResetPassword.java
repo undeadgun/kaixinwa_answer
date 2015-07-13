@@ -35,6 +35,8 @@ public class ResetPassword extends Activity implements OnClickListener {
 	private Button resetc;
 	private EditText newpassword, againnewpassword;
 	private Handler resetmima;
+	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,18 +61,18 @@ public class ResetPassword extends Activity implements OnClickListener {
 		resetc.setOnClickListener(this);
 	}
 
-	// 获取时间
-	private String gaintime() {
-		Calendar c = Calendar.getInstance();
-		int year = c.get(Calendar.YEAR);
-		int month = c.get(Calendar.MONTH) + 1;
-		int day = c.get(Calendar.DAY_OF_MONTH);
-		int hour = c.get(Calendar.HOUR_OF_DAY);
-		int minute = c.get(Calendar.MINUTE);
-		String logintime = year + "-" + month + "-" + day + "-" + hour + "-"
-				+ minute;
-		return logintime;
-	}
+//	// 获取时间
+//	private String gaintime() {
+//		Calendar c = Calendar.getInstance();
+//		int year = c.get(Calendar.YEAR);
+//		int month = c.get(Calendar.MONTH) + 1;
+//		int day = c.get(Calendar.DAY_OF_MONTH);
+//		int hour = c.get(Calendar.HOUR_OF_DAY);
+//		int minute = c.get(Calendar.MINUTE);
+//		String logintime = year + "-" + month + "-" + day + "-" + hour + "-"
+//				+ minute;
+//		return logintime;
+//	}
 
 	private void forgetmima() {
 		new Thread(new Runnable() {
@@ -78,17 +80,13 @@ public class ResetPassword extends Activity implements OnClickListener {
 			@Override
 			public void run() {
 
-				String Url = "http://123.57.209.98/hlwh_android/get_password.php";
+				String Url = "http://123.57.209.98/qkhl_api/index.php/UserServer/update_password_set_B";
 
-				String logint = gaintime();
-				CreateInfo cinfo = new CreateInfo();
 
-				String input = newpassword.getText().toString().trim();
-//				ForgetPassword fp = new ForgetPassword();
-//				String pnum = fp.get_phonenum();
+				String input = againnewpassword.getText().toString().trim();
 				String pnum =ForgetPassword.forgetphone.getText().toString().trim();
-				String s = cinfo.upkey(input, pnum, logint);
-
+                Log.e("tag", pnum+"手机号");
+                Log.e("tag", input+"新密码");
 				HttpClient client = new HttpClient();
 				PostMethod method = new PostMethod(Url);
 
@@ -97,9 +95,11 @@ public class ResetPassword extends Activity implements OnClickListener {
 				method.setRequestHeader("ContentType",
 						"application/x-www-form-urlencoded;charset=UTF-8");
 
-				NameValuePair[] data = { new NameValuePair("upkey", s),
-						new NameValuePair("value", input), };
-				Log.e("tag", "upkey：" + s + "密码：" + input);
+				NameValuePair[] data = { new NameValuePair("post_code", Constant.MIYAO),
+						new NameValuePair("phone_num", pnum),
+						new NameValuePair("password", input),
+						 };
+				Log.e("tag", "phone_num：" + pnum + "密码：" + input);
 				method.setRequestBody(data);
 
 				try {
@@ -107,12 +107,10 @@ public class ResetPassword extends Activity implements OnClickListener {
 					String SubmitResult = method.getResponseBodyAsString();
 					JSONObject jObject = new JSONObject(SubmitResult);
 					String code = jObject.getString("code");
-					// SubmitResult=jObject.getString("message");
-					// SubmitResult=jObject.getString("data");
+					String message=jObject.getString("message");
 					Log.e("tag", code + "code");
-					Log.e("tag", SubmitResult + "code");
-					Message msg = new Message();
-					msg.obj = code;
+					Message msg = Message.obtain();
+					msg.obj = message;
 					resetmima.sendMessage(msg);
 
 				} catch (HttpException e) {
@@ -154,10 +152,10 @@ public class ResetPassword extends Activity implements OnClickListener {
 
 							public void handleMessage(android.os.Message msg) {
 
-								if ("102".equals(msg.obj)) {
-									Toast.makeText(ResetPassword.this, "修改失败",
+								if (msg.obj!=null) {
+									Toast.makeText(ResetPassword.this, msg.obj.toString(),
 											Toast.LENGTH_SHORT).show();
-									if ("101".equals(msg.obj)) {
+									if ("更改成功".equals(msg.obj)) {
 										
 										Toast.makeText(ResetPassword.this, "修改成功",
 												Toast.LENGTH_SHORT).show();

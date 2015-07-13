@@ -12,7 +12,6 @@ import android.graphics.Point;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -26,7 +25,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.ScaleAnimation;
@@ -46,8 +44,8 @@ public class AnswerFragment extends Fragment implements Callback {
 	private TextView dkaimen;
 	private LinearLayout leftLayout = null;
 	private LinearLayout rightLayout = null;
-	private LinearLayout feikaimen = null;
-	private static RelativeLayout yuantu, saomiao;
+	// private LinearLayout feikaimen = null;
+	private static RelativeLayout yuantu;
 	private RelativeLayout mContainer = null;
 	private RelativeLayout mCropLayout = null;
 	private ImageView kuang;
@@ -57,6 +55,7 @@ public class AnswerFragment extends Fragment implements Callback {
 	private boolean playBeep;
 	private boolean vibrate;
 	private boolean hasSurface;
+	private boolean dialogFlag = false;
 
 	private int x = 0;
 	private int y = 0;
@@ -99,8 +98,9 @@ public class AnswerFragment extends Fragment implements Callback {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View firstpagelayout = inflater.inflate(R.layout.ceshi, container,
-				false);
+
+		View firstpagelayout = inflater.inflate(R.layout.daan_fragment,
+				container, false);
 
 		return firstpagelayout;
 	}
@@ -111,7 +111,7 @@ public class AnswerFragment extends Fragment implements Callback {
 		super.onViewCreated(view, savedInstanceState);
 
 		xiangji();
-		feikaimen = (LinearLayout) getActivity().findViewById(R.id.fenkai);
+		// feikaimen = (LinearLayout) getActivity().findViewById(R.id.fenkai);
 		dkaimen = (TextView) getActivity().findViewById(R.id.kaiemnanniu);
 		leftLayout = (LinearLayout) getActivity().findViewById(R.id.left);
 		rightLayout = (LinearLayout) getActivity().findViewById(R.id.right);
@@ -119,8 +119,9 @@ public class AnswerFragment extends Fragment implements Callback {
 		yuantu.setVisibility(View.VISIBLE);
 
 		kuang = (ImageView) getActivity().findViewById(R.id.capture_scan_line);
-		saomiao = (RelativeLayout) getActivity().findViewById(
-				R.id.capture_containter);
+		// saomiao = (RelativeLayout) getActivity().findViewById(
+		// R.id.capture_containter);
+		xiangji_open();
 		dkaimen.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -129,7 +130,6 @@ public class AnswerFragment extends Fragment implements Callback {
 				yuantu.setVisibility(View.GONE);
 				leftLayout.setVisibility(View.GONE);
 				rightLayout.setVisibility(View.GONE);
-				
 
 				leftLayout.setAnimation(AnimationUtils.loadAnimation(
 						getActivity(), R.anim.translate_left));
@@ -143,7 +143,7 @@ public class AnswerFragment extends Fragment implements Callback {
 	}
 
 	public void xiangji() {
-		
+
 		CameraManager.init(getActivity().getApplicationContext());
 		hasSurface = false;
 		inactivityTimer = new InactivityTimer(getActivity());
@@ -161,8 +161,12 @@ public class AnswerFragment extends Fragment implements Callback {
 		mQrLineView.startAnimation(animation);
 
 	}
-	public void xiangji_open(){
-		
+
+	public void xiangji_open() {
+		yuantu.setVisibility(View.VISIBLE);
+		leftLayout.setVisibility(View.VISIBLE);
+		rightLayout.setVisibility(View.VISIBLE);
+
 		SurfaceView surfaceView = (SurfaceView) getActivity().findViewById(
 				R.id.capture_preview);
 		surfaceHolder = surfaceView.getHolder();
@@ -203,117 +207,129 @@ public class AnswerFragment extends Fragment implements Callback {
 
 	@Override
 	public void onDestroy() {
-		Log.e("tag", "onDestroy");
+		Log.e("tag", "AnswerFragment+onDestroy");
+
 		inactivityTimer.shutdown();
 		super.onDestroy();
+		CameraManager.get().closeDriver();
 	}
 
 	@Override
 	public void onPause() {
-		Log.e("tag", "onPause");
-		yuantu.setVisibility(View.VISIBLE);
-		leftLayout.setVisibility(View.VISIBLE);
-		rightLayout.setVisibility(View.VISIBLE);
+		Log.e("tag", "AnswerFragment+onPause");
+		//
 		super.onPause();
 		if (handler != null) {
 			handler.quitSynchronously();
 			handler = null;
 		}
 		CameraManager.get().closeDriver();
-		Camera c=new Camera();
-		
+		Camera c = new Camera();
 
 	}
 
 	@Override
 	public void onResume() {
-		Log.e("tag", "onResume");
+		Log.e("tag", "AnswerFragment+onResume");
 		super.onResume();
+		yuantu.setVisibility(View.VISIBLE);
+		leftLayout.setVisibility(View.VISIBLE);
+		rightLayout.setVisibility(View.VISIBLE);
 
-		
-		
 	}
 
 	@Override
 	public void onStart() {
-		Log.e("tag", "onStart");
+		Log.e("tag", "AnswerFragment+onStart");
 		super.onStart();
-		yuantu.setVisibility(View.VISIBLE);
-		leftLayout.setVisibility(View.VISIBLE);
-		rightLayout.setVisibility(View.VISIBLE);
 		xiangji_open();
 	}
 
 	@Override
 	public void onStop() {
-		Log.e("tag", "onStop");
+		Log.e("tag", "AnswerFragment+onStop");
 		super.onStop();
+
 	}
 
 	public void handleDecode(final String result) {
 		inactivityTimer.onActivity();
 		playBeepSoundAndVibrate();
-		// Toast.makeText(getApplicationContext(), result+"是这个吗",
-		// Toast.LENGTH_SHORT)
-		// .show();
-
 		// 连续扫描，不发送此消息扫描一次结束后就不能再次扫描
 		// handler.sendEmptyMessage(R.id.restart_preview);
-		AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-		// if (barcode == null)
-		// {
-		// dialog.setIcon(null);
-		// }
-		// else
-		// {
-		//
-		// Drawable drawable = new BitmapDrawable(barcode);
-		// dialog.setIcon(drawable);
-		// }
-		dialog.setTitle("是否查看内容");
-		// dialog.setMessage(result);
-		dialog.setNegativeButton("查看", new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				 Intent intent = new Intent(getActivity(),AnswerPage.class);
-//				Intent intent = new Intent();
-//				intent.setAction("android.intent.action.VIEW");
-//				Uri content_url = Uri.parse(result
-//						+ "?appinfo=9e81037e81254512aa2f5ebba79635d2");
-				 intent.putExtra("lianjie",
-						 result);
-//				intent.setData(content_url);
-				startActivity(intent);
-				// getActivity().finish();
-				// web.setVisibility(View.VISIBLE);
-				// surfaceView.setVisibility(View.GONE);
-				// viewfinderView.setVisibility(View.GONE);
 
-				
+		if (dialogFlag == false) {
+			AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+			// if (barcode == null)
+			// {
+			// dialog.setIcon(null);
+			// }
+			// else
+			// {
+			//
+			// Drawable drawable = new BitmapDrawable(barcode);
+			// dialog.setIcon(drawable);
+			// }
+			dialog.setTitle("是否查看内容");
+			dialog.setCancelable(false);
+			// dialog.setMessage(result);
+			dialog.setNegativeButton("查看",
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							Intent intent = new Intent(getActivity(),
+									AnswerPage.class);
+							// Intent intent = new Intent();
+							// intent.setAction("android.intent.action.VIEW");
+							// Uri content_url = Uri.parse(result
+							// + "?appinfo=9e81037e81254512aa2f5ebba79635d2");
+							intent.putExtra("lianjie",
+									"http://qkhl-api.com/qkhl_api/index.php/AnswerPage/get_a");
+							// result；
+							// intent.setData(content_url);
+							startActivity(intent);
+							// getActivity().finish();
+							// web.setVisibility(View.VISIBLE);
+							// surfaceView.setVisibility(View.GONE);
+							// viewfinderView.setVisibility(View.GONE);
 
-				// intent.setAction("android.intent.action.VIEW");
+							// intent.setAction("android.intent.action.VIEW");
 
-				// Uri content_url = Uri.parse(obj.getText());
-				// Log.e("TAG", content_url+"连接lianjie");
-				// WebSettings webSettings = web.getSettings();
-				// webSettings.setBuiltInZoomControls(true);
-				// web.loadUrl(obj.getText()+"aa");
-				// Log.e("TAG", obj.getText()+"aa"+"连接lianjie");
-				
-				// // intent.setData(content_url);
-				// startActivity(intent);
-				// finish();
-			}
-		});
-		dialog.setPositiveButton("取消", new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				// getActivity().finish();
-				dialog.dismiss();
-				xiangji_open();
-			}
-		});
-		dialog.create().show();
+							// Uri content_url = Uri.parse(obj.getText());
+							// Log.e("TAG", content_url+"连接lianjie");
+							// WebSettings webSettings = web.getSettings();
+							// webSettings.setBuiltInZoomControls(true);
+							// web.loadUrl(obj.getText()+"aa");
+							// Log.e("TAG", obj.getText()+"aa"+"连接lianjie");
+							dialog.dismiss();
+							dialogFlag = false;
+							// // intent.setData(content_url);
+							// startActivity(intent);
+							// finish();
+						}
+					});
+			dialog.setPositiveButton("取消",
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// getActivity().finish();
+							dialog.dismiss();
+							xiangji_open();
+							yuantu.setVisibility(View.GONE);
+							leftLayout.setVisibility(View.GONE);
+							rightLayout.setVisibility(View.GONE);
+							dialogFlag = false;
+							if (handler != null) // 实现连续扫描
+								handler.sendEmptyMessage(R.id.restart_preview);
+						}
+					});
+			dialog.create().show();
+			dialogFlag = true;
+		} else {
+
+			return;
+		}
+
 	}
 
 	private static final long VIBRATE_DURATION = 200L;
@@ -393,6 +409,8 @@ public class AnswerFragment extends Fragment implements Callback {
 	private static final float BEEP_VOLUME = 0.50f;
 
 	private void initBeepSound() {
+
+		// TODO Auto-generated method stub
 		if (playBeep && mediaPlayer == null) {
 			getActivity().setVolumeControlStream(AudioManager.STREAM_MUSIC);
 			mediaPlayer = new MediaPlayer();
@@ -411,6 +429,7 @@ public class AnswerFragment extends Fragment implements Callback {
 				mediaPlayer = null;
 			}
 		}
+
 	}
 
 }

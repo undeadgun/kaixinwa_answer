@@ -12,38 +12,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:text="登录"
+            android:text="@string/logintitle"
             android:textColor="#ffffff"
             android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/zhucebutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:text="注册"
-            android:textColor="#ffffff"
-            android:textSize="20sp" />
-
     </RelativeLayout>
-    
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:orientation="vertical" 
-        android:layout_marginTop="20dp">
+        android:orientation="vertical" >
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/phoneshuru" 
-            >
+            android:background="@drawable/phoneshuru" >
 
             <EditText
                 android:id="@+id/phonenumber"
@@ -53,56 +39,78 @@
                 android:layout_centerVertical="true"
                 android:background="@null"
                 android:ems="10"
-                android:hint="输入手机号"
+                android:hint="@string/inputphonenum"
                 android:maxLength="11"
                 android:numeric="integer"
                 android:singleLine="true" />
         </RelativeLayout>
 
-        <View 
+        <View
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-        <RelativeLayout 
+            android:layout_height="20dp" />
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/shurumimakuangbg" >
+ 
+            <EditText
+                android:id="@+id/passw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:ems="10"
+                android:hint="@string/inputpassword"
+                android:password="true"
+                android:singleLine="true" >
+            </EditText>
+        </RelativeLayout>
 
-        <EditText
-            android:id="@+id/passw"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:background="@null"
-            android:password="true"
-            android:singleLine="true"
-            android:ems="10"
-            android:hint="输入密码" >
-
-          
-        </EditText>
-
-          </RelativeLayout>
-         <View 
+        <View
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-        <Button 
+            android:layout_height="20dp" />
+
+        <Button
             android:id="@+id/dengluanniu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/logindenglu"
+            android:text="@string/loginanniu"
             android:textColor="#ffffff"
-            android:textSize="25sp"
-            android:text="登录"/>
-         <View 
+            android:textSize="25sp" />
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-        <TextView 
-            android:id="@+id/forgetmima"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="忘记密码？"/>
-        
+            android:layout_height="20dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/zhucebutton"
+               
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="33dp"
+                android:text="@string/lijizhuce"
+                 />
+
+            <TextView
+                 android:id="@+id/forgetmima"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="33dp"
+                android:text="@string/formima"
+                 />
+        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>

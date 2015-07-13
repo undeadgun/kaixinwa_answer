@@ -70,13 +70,14 @@ public class setup_meActivity extends Activity implements OnClickListener {
 	private static final int IMAGE_REQUEST_CODE = 0;
 	private static final int CAMERA_REQUEST_CODE = 1;
 	private static final int RESULT_REQUEST_CODE = 2;
-    public static Handler handler;
-    private ProgressDialog MyDialog;
+	public static Handler handler;
+	private ProgressDialog MyDialog;
 
-	String imgname=MD5Utils.stringToMD5(SharePreferUtil.getString("userID", ""))+".png";//pic name
-    File f = new File(Environment.getExternalStorageDirectory()+ "/kaixinwa_answer/avatar/",imgname);
-    String imgpath=f.getPath().toString();//pic path
-
+	String imgname = MD5Utils.stringToMD5(SharePreferUtil.getString("userID",
+			"")) + ".png";// pic name
+	File f = new File(Environment.getExternalStorageDirectory()
+			+ "/kaixinwa_answer/avatar/", imgname);
+	String imgpath = f.getPath().toString();// pic path
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -87,24 +88,19 @@ public class setup_meActivity extends Activity implements OnClickListener {
 		initViews();
 		loadavatar();
 
+	}
+
+	// 加载头像
+	public void loadavatar() {
+		String img = imgpath;
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inSampleSize = 2;
+		Log.i("chen", "============options=======" + options);
+		Bitmap bm = BitmapFactory.decodeFile(img, options);
+		setheadpic_img.setImageBitmap(bm);
 
 	}
-	
 
-    
-	
-	//加載頭像
-	public void loadavatar(){
-		String img = imgpath;    
-        BitmapFactory.Options options = new BitmapFactory.Options();  
-        options.inSampleSize = 2;  
-        Log.i("chen", "============options======="+options);  
-        Bitmap bm = BitmapFactory.decodeFile(img, options);  
-        setheadpic_img.setImageBitmap(bm);  
-
-	}
- 
-	
 	private void initViews() {
 		return_imgbutton = (ImageButton) findViewById(R.id.setup_return_imgbutton);
 		setname = findViewById(R.id.setup_name);
@@ -139,6 +135,53 @@ public class setup_meActivity extends Activity implements OnClickListener {
 		setschool.setOnClickListener(this);
 		setheadpic.setOnClickListener(this);
 		mysetuptextview.setOnClickListener(this);
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		if (SharePreferUtil.getString("setname", "").equals("")) {
+
+		} else {
+
+			setnametext.setText(SharePreferUtil.getString("setname", ""));
+		}
+		
+		if (SharePreferUtil.getString("setmood", "").equals("")) {
+
+		} else {
+
+			setmoodtext.setText(SharePreferUtil.getString("setmood", ""));
+		}
+		
+		if (SharePreferUtil.getString("setweixin", "").equals("")) {
+
+		} else {
+
+			setweixintext.setText(SharePreferUtil.getString("setweixin", ""));
+		}
+		
+		if (SharePreferUtil.getString("setqq", "").equals("")) {
+
+		} else {
+
+			setqqtext.setText(SharePreferUtil.getString("setqq", ""));
+		}
+		
+		if (SharePreferUtil.getString("setaddress", "").equals("")) {
+
+		} else {
+
+			setaddresstext.setText(SharePreferUtil.getString("setaddress", ""));
+		}
+		
+		if (SharePreferUtil.getString("setschool", "").equals("")) {
+
+		} else {
+
+			setschooltext.setText(SharePreferUtil.getString("setschool", ""));
+		}
 	}
 
 	@Override
@@ -191,6 +234,8 @@ public class setup_meActivity extends Activity implements OnClickListener {
 					update_userinfoActivity.class);
 			str = name_textview.getText().toString();
 			intent.putExtra("name_textview", str);
+			intent.putExtra("tag", "1");
+
 			intent.putExtra("url",
 					"http://123.57.209.98/hlwh_android/update_name.php");
 			startActivity(intent);
@@ -204,6 +249,7 @@ public class setup_meActivity extends Activity implements OnClickListener {
 			intent.putExtra("url",
 					"http://123.57.209.98/hlwh_android/update_signature.php");
 			intent.putExtra("name_textview", str);
+			intent.putExtra("tag", "2");
 			startActivity(intent);
 			updateMessage(setmoodtext);
 
@@ -215,6 +261,7 @@ public class setup_meActivity extends Activity implements OnClickListener {
 			intent.putExtra("url",
 					"http://123.57.209.98/hlwh_android/update_weixin.php");
 			intent.putExtra("name_textview", str);
+			intent.putExtra("tag", "3");
 			startActivity(intent);
 			updateMessage(setweixintext);
 
@@ -226,6 +273,7 @@ public class setup_meActivity extends Activity implements OnClickListener {
 			intent.putExtra("url",
 					"http://123.57.209.98/hlwh_android/update_qq.php");
 			intent.putExtra("name_textview", str);
+			intent.putExtra("tag", "4");
 			startActivity(intent);
 			updateMessage(setqqtext);
 
@@ -237,6 +285,7 @@ public class setup_meActivity extends Activity implements OnClickListener {
 			intent.putExtra("url",
 					"http://123.57.209.98/hlwh_android/update_adress.php");
 			intent.putExtra("name_textview", str);
+			intent.putExtra("tag", "5");
 			startActivity(intent);
 			updateMessage(setaddresstext);
 
@@ -248,6 +297,7 @@ public class setup_meActivity extends Activity implements OnClickListener {
 			intent.putExtra("url",
 					"http://123.57.209.98/hlwh_android/update_school.php");
 			intent.putExtra("name_textview", str);
+			intent.putExtra("tag", "6");
 			startActivity(intent);
 			updateMessage(setschooltext);
 
@@ -288,24 +338,31 @@ public class setup_meActivity extends Activity implements OnClickListener {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						
 
 						switch (which) {
 						case 0:
 
-							Intent picture = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+							Intent picture = new Intent(
+									Intent.ACTION_PICK,
+									android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 							startActivityForResult(picture, IMAGE_REQUEST_CODE);
 							break;
 						case 1:
 
-							Intent intentFromCapture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+							Intent intentFromCapture = new Intent(
+									MediaStore.ACTION_IMAGE_CAPTURE);
 							// 判断存储卡是否可以用，可用进行存储
 							if (Tools.hasSdcard()) {
 
-								intentFromCapture.putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(new File(Environment.getExternalStorageDirectory(),IMAGE_FILE_NAME)));
+								intentFromCapture.putExtra(
+										MediaStore.EXTRA_OUTPUT,
+										Uri.fromFile(new File(Environment
+												.getExternalStorageDirectory(),
+												IMAGE_FILE_NAME)));
 							}
 
-							startActivityForResult(intentFromCapture,CAMERA_REQUEST_CODE);
+							startActivityForResult(intentFromCapture,
+									CAMERA_REQUEST_CODE);
 							break;
 						}
 					}
@@ -383,18 +440,17 @@ public class setup_meActivity extends Activity implements OnClickListener {
 		if (extras != null) {
 			Bitmap photo = extras.getParcelable("data");
 			Log.e("tag", "保存图片");
-			
-			
 
 			try {
 				f.createNewFile();
 				FileOutputStream out = new FileOutputStream(f);
-				toRoundBitmap(photo).compress(Bitmap.CompressFormat.PNG, 90, out);
+				toRoundBitmap(photo).compress(Bitmap.CompressFormat.PNG, 90,
+						out);
 				out.flush();
 				out.close();
-				Log.i("tag", "已经保存"+imgname);
+				Log.i("tag", "已经保存" + imgname);
 				new Thread(new Runnable() {
-					
+
 					@Override
 					public void run() {
 						new GetAndUloadImg().show(imgpath, imgname);
@@ -402,18 +458,17 @@ public class setup_meActivity extends Activity implements OnClickListener {
 					}
 				}).start();
 				loadavatar();
-				 MyDialog = ProgressDialog.show(setup_meActivity.this, "上传头像" , "正在上传", true);
-				 handler = new Handler() {
-						public void handleMessage(android.os.Message msg) {
-							if (msg.what == 1) {
-								MyDialog.dismiss();
+				MyDialog = ProgressDialog.show(setup_meActivity.this, "上传头像",
+						"正在上传", true);
+				handler = new Handler() {
+					public void handleMessage(android.os.Message msg) {
+						if (msg.what == 1) {
+							MyDialog.dismiss();
 
-							} else {
-							}
-						};
+						} else {
+						}
 					};
- 
-		      
+				};
 
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

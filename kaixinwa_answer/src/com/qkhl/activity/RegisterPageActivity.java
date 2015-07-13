@@ -5,6 +5,8 @@ import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
@@ -36,13 +38,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 @SuppressLint("HandlerLeak")
 public class RegisterPageActivity extends Activity implements OnClickListener {
 
-	private ImageButton registback;// 返回按钮
+	private RelativeLayout registback;// 返回按钮
 	private Button smsbutton;// 发送短信按钮
 	private Button complete;// 完成按钮
 	public EditText phoneNumber;// 手机号输入框
@@ -52,13 +56,13 @@ public class RegisterPageActivity extends Activity implements OnClickListener {
 
 	private Handler faxiaoxi;
 	private String input;// 输入的密码
-	private TextView zhuxiao;
+//	private TextView zhuxiao;
 	private TelephonyManager telephonyManager;
 	private String phnum;
 
 	private String verificcode;// 输入的验证码
 	private Timer timer;// 计时器
-	int jishi = 60;// 计时
+	private int jishi = 60;// 计时
 	public static Handler smshandler;
 
 	private Handler handler = new Handler() {
@@ -87,26 +91,33 @@ public class RegisterPageActivity extends Activity implements OnClickListener {
 			@Override
 			public void onClick(View arg0) {
 
+				
 				String phonenum = phoneNumber.getText().toString().trim();
+				if (isMobileNO(phonenum) == true) {
+
+					jishi = 60;
+					smsbutton.setEnabled(false);
+					timer = new Timer();
+					timer.schedule(new TimerTask() {
+
+						@Override
+						public void run() {
+							handler.sendEmptyMessage(jishi--);
+						}
+					}, 0, 1000);
+					
+				}
 				SendSMS sms = new SendSMS(phonenum);
 				sms.send();
+			
 				smshandler = new Handler() {
 					public void handleMessage(android.os.Message msg) {
 						if (msg.obj != null) {
-							if ("提交成功".equals(msg.obj)) {
+							if ("发送成功".equals(msg.obj)) {
 								Toast.makeText(RegisterPageActivity.this,"短信发送成功", Toast.LENGTH_LONG).show();
-
-								jishi = 60;
-								smsbutton.setEnabled(false);
-								timer = new Timer();
-								timer.schedule(new TimerTask() {
-
-									@Override
-									public void run() {
-										handler.sendEmptyMessage(jishi--);
-									}
-								}, 0, 1000);
+							
 							} else {
+								
 								Toast.makeText(RegisterPageActivity.this,msg.obj+"", Toast.LENGTH_LONG).show();
 							}
 						}
@@ -118,6 +129,14 @@ public class RegisterPageActivity extends Activity implements OnClickListener {
 
 		});
 
+	}
+	
+	
+	public  boolean isMobileNO(String mobiles) {
+		Pattern p = Pattern
+				.compile("^((13[0-9])\\d{8}$|(15[^4,\\D])\\d{8}$|(18[0,5-9]))\\d{8}$");
+		Matcher m = p.matcher(mobiles);
+		return m.matches();
 	}
 
 	// 监听器事件
@@ -172,21 +191,21 @@ public class RegisterPageActivity extends Activity implements OnClickListener {
 			}
 
 			break;
-		case R.id.resgister:
-			RegisterPageActivity.this.finish();
-			break;
+//		case R.id.resgister:
+//			RegisterPageActivity.this.finish();
+//			break;
 
 		}
 	}
 
+	
 	private void Initialization() {
 
-		registback = (ImageButton) findViewById(R.id.registback);
+		registback = (RelativeLayout) findViewById(R.id.registback);
 		smsbutton = (Button) findViewById(R.id.smsbutton);
-
 		complete = (Button) findViewById(R.id.rwancheng);
 		verification = (EditText) findViewById(R.id.verificationcode);
-		zhuxiao = (TextView) findViewById(R.id.resgister);
+//		zhuxiao = (TextView) findViewById(R.id.resgister);
 		phoneNumber = (EditText) findViewById(R.id.telphoneNumber);
 		inputpass = (EditText) findViewById(R.id.inputpassw);
 
@@ -199,7 +218,7 @@ public class RegisterPageActivity extends Activity implements OnClickListener {
 
 		registback.setOnClickListener(this);
 		complete.setOnClickListener(this);
-		zhuxiao.setOnClickListener(this);
+//		zhuxiao.setOnClickListener(this);
 
 		telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
@@ -231,19 +250,20 @@ public class RegisterPageActivity extends Activity implements OnClickListener {
 				// 获取uuid
 				UUID uuid = UUID.randomUUID();
 				String uu = uuid.toString();
+				phnum = phoneNumber.getText().toString().trim();
 
 				// 获取设备id
 				String shebeiid = telephonyManager.getDeviceId();
 				// 获取upkey
 				CreateInfo ci = new CreateInfo();
-				String upkeymd5 = ci.upkey(input, phnum, createtime);
-				// 密码转换md5
-				// TODO Auto-generated method stub
-				phnum = phoneNumber.getText().toString().trim();
+				String upkeymd5 = ci.upkey(phnum, input);
+
+
 
 				// 注册接口
-				String Url = "http://123.57.209.98/hlwh_android/register.php";
+				String Url = "http://123.57.209.98/qkhl_api/index.php/UserServer/sign_up";
 
+				
 				// http://123.57.209.98/hlwh_android/login.php?format=xml
 
 				HttpClient client = new HttpClient();
@@ -254,9 +274,10 @@ public class RegisterPageActivity extends Activity implements OnClickListener {
 				method.setRequestHeader("ContentType",
 						"application/x-www-form-urlencoded;charset=UTF-8");
 
-				NameValuePair[] data = { new NameValuePair("userID", phnum),
-						new NameValuePair("password", input),
+				NameValuePair[] data = {new NameValuePair("post_code", Constant.MIYAO), 
+						new NameValuePair("phone_num", phnum),
 						new NameValuePair("mobile_code", verificcode),
+						new NameValuePair("password", input),
 						new NameValuePair("uuid", uu),
 						new NameValuePair("equipment_id", shebeiid),
 						new NameValuePair("create_time", createtime),
@@ -268,6 +289,7 @@ public class RegisterPageActivity extends Activity implements OnClickListener {
 						+ "mobile_code:" + verificcode);
 				method.setRequestBody(data);
 
+				
 				try {
 					client.executeMethod(method);
 					String SubmitResult = method.getResponseBodyAsString();
@@ -280,7 +302,7 @@ public class RegisterPageActivity extends Activity implements OnClickListener {
 					// Element root = doc.getRootElement();
 					// String code = root.elementText("code");
 					Log.e("tag", code + "：code值" + message);
-					Message msg = new Message();
+					Message msg = Message.obtain();
 					if ("301".equals(code)) {
 						msg.obj = "注册成功";
 						// 注册成功

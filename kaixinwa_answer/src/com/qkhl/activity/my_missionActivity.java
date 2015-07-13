@@ -1,5 +1,6 @@
 package com.qkhl.activity;
 
+import com.qkhl.common.MyApplication;
 import com.qkhl.kaixinwa_android.R;
 
 import android.app.Activity;

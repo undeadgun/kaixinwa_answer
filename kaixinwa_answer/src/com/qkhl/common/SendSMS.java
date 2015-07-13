@@ -21,7 +21,8 @@ import android.os.Message;
 import android.util.Log;
 
 public class SendSMS {
-	private static String Url = "http://123.57.209.98/hlwh_android/sms.php?method=Submit";
+	
+	private static String Url = "http://123.57.209.98/qkhl_api/index.php/SMSServer/sendSMS";
 	private String phone_number;
 	private String message;
 
@@ -48,7 +49,9 @@ public class SendSMS {
 				
 				method.setRequestHeader("ContentType","application/x-www-form-urlencoded;charset=UTF-8");
 
-				NameValuePair[] data = { new NameValuePair("mobile",phone_number) };
+				NameValuePair[] data = { new NameValuePair("post_code",Constant.MIYAO),
+						new NameValuePair("phone_num",phone_number)
+						};
 
 				method.setRequestBody(data);
 
@@ -58,14 +61,14 @@ public class SendSMS {
 
 					JSONObject jObject = new JSONObject(SubmitResult);
 					String code = jObject.getString("code");
-					message = jObject.getString("msg");
-					String smsid = jObject.getString("smsid");
+					message = jObject.getString("message");
+//					String smsid = jObject.getString("smsid");
 
-					Log.e("tag", "code:"+code+"/br"+"message:"+message+"/br"+"smsid:"+smsid);
-					Message msg = new Message();
+					Log.e("tag", "code:"+code+"/br"+"message:"+message+"/br");
+					Message msg = Message.obtain();
 					
 
-					if ("提交成功".equals(message)) {
+					if ("发送成功".equals(message)) {
 						mobile_code mc=new mobile_code(phone_number);
 						mc.delete_mobile_code();
 						msg.obj = message;

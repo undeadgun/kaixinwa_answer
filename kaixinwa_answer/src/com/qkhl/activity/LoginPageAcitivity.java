@@ -184,7 +184,7 @@ public class LoginPageAcitivity extends Activity implements OnClickListener {
 			public void run() {
 
 				String time = gaintime();
-				String Url = "http://123.57.209.98/hlwh_android/login.php";
+				String Url = "http://123.57.209.98/qkhl_api/index.php/UserServer/sign_in";
 
 				// http://123.57.209.98/hlwh_android/login.php?format=xml
 
@@ -196,10 +196,12 @@ public class LoginPageAcitivity extends Activity implements OnClickListener {
 				method.setRequestHeader("ContentType",
 						"application/x-www-form-urlencoded;charset=UTF-8");
 
-				NameValuePair[] data = { new NameValuePair("userID", pnum),
+				NameValuePair[] data = { new NameValuePair("post_code", Constant.MIYAO),
+						new NameValuePair("phone_num", pnum),
 						new NameValuePair("password", input),
 						new NameValuePair("login_time", time),
-						new NameValuePair("client_type:", Constant.USER_TYPE), };
+						new NameValuePair("client_type", Constant.USER_TYPE), 
+						new NameValuePair("status", "1"),};
 				Log.e("tag", "手机号：" + pnum + "密码：" + input + "创建时间:" + time
 						+ "user_type:" + Constant.USER_TYPE);
 				method.setRequestBody(data);
@@ -220,11 +222,11 @@ public class LoginPageAcitivity extends Activity implements OnClickListener {
 						SharePreferUtil.putString("upkey", upk);
 						SharePreferUtil.putString("zhuangtai", "1");
 					}
-					//301，401登录失败
+					//101成功，102登录失败
 					
 					
 				
-					Message msg = new Message();
+					Message msg =  Message.obtain();
 					msg.obj = mess;
 					logintishi.sendMessage(msg);
 
@@ -236,6 +238,9 @@ public class LoginPageAcitivity extends Activity implements OnClickListener {
 					e.printStackTrace();
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
+//					Intent in=new Intent(LoginPageAcitivity.this,MainActivity.class);
+//					startActivity(in);
+//					finish();
 					e.printStackTrace();
 				}
 
@@ -247,28 +252,28 @@ public class LoginPageAcitivity extends Activity implements OnClickListener {
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
-		Log.e("tag", "onDestroy");
+		Log.e("tag", "LoginPageAcitivityonDestroy");
 	}
 
 	@Override
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
-		Log.e("tag", "onPause");
+		Log.e("tag", "LoginPageAcitivityonPause");
 	}
 
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		Log.e("tag", "onResume");
+		Log.e("tag", "LoginPageAcitivityonResume");
 	}
 
 	@Override
 	protected void onRestart() {
 		// TODO Auto-generated method stub
 		super.onRestart();
-		Log.e("tag", "onRestart");
+		Log.e("tag", "LoginPageAcitivityonRestart");
 	}
 
 }

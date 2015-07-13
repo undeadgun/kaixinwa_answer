@@ -40,7 +40,7 @@ public class mobile_code {
 					JSONObject jObject = new JSONObject(SubmitResult);
 					String code = jObject.getString("code");
 
-					Message msg = new Message();
+					Message msg =Message.obtain();
 					
 //
 //					if ("提交成功".equals(message)) {

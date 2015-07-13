@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import com.qkhl.kaixinwa_android.R;
 import com.qkhl.util.ConnectionHttpPost;
+import com.qkhl.util.SharePreferUtil;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ public class update_userinfoActivity extends Activity {
 	private String new_name;
 	public static Handler rename;
 	public static Handler renametext;
-	private String str, url;
+	private String str, url, tag;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,8 @@ public class update_userinfoActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.update_userinfo);
 		str = getIntent().getExtras().getString("name_textview");
+		tag = getIntent().getExtras().getString("tag");
+
 		url = getIntent().getExtras().getString("url");
 		Log.e("TAG", url);
 		name_update = (EditText) findViewById(R.id.name_update_edittext);
@@ -68,25 +71,55 @@ public class update_userinfoActivity extends Activity {
 								Toast.makeText(update_userinfoActivity.this,
 										msg.obj.toString(), Toast.LENGTH_SHORT)
 										.show();
-								if ("更新失败".equals(msg.obj)) {
+								if ("更新成功".equals(msg.obj)) {
+									if (tag.equals("1")) {
 
-									new Thread(new Runnable() {
+										SharePreferUtil.putString("setname",
+												new_name);
+									}
+									if (tag.equals("2")) {
 
-										@Override
-										public void run() {
+										SharePreferUtil.putString("setmood",
+												new_name);
+									}
+									if (tag.equals("3")) {
 
-											// TODO Auto-generated method stub
-											Message message = new Message();
-											message.obj = new_name;
+										SharePreferUtil.putString("setweixin",
+												new_name);
+									}
+									if (tag.equals("4")) {
 
-											renametext.sendMessage(message);
+										SharePreferUtil.putString("setqq",
+												new_name);
+									}
+									if (tag.equals("5")) {
 
-										}
-									}).start();
+										SharePreferUtil.putString("setaddress",
+												new_name);
+									}
+									if (tag.equals("6")) {
 
-									finish();
+										SharePreferUtil.putString("setschool",
+												new_name);
+									}
+
+									// new Thread(new Runnable() {
+									//
+									// @Override
+									// public void run() {
+									//
+									// // TODO Auto-generated method stub
+									// Message message = new Message();
+									// message.obj = new_name;
+									//
+									// renametext.sendMessage(message);
+									//
+									// }
+									// }).start();
+
 								}
 							}
+							finish();
 						}
 
 					};
